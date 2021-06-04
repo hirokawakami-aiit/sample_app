@@ -1,10 +1,10 @@
 require 'benchmark/ips'
-STRING_HASH  = { "foo" => "bar" }
-SYMBOL_HASH  = { :foo  => "bar" }
-INTEGER_HASH = { 1  => "bar" }
+STRING_HASH  = { "zero" => "foo" }
+SYMBOL_HASH  = { :zero  => "foo" }
+INTEGER_HASH = { 0      => "foo" }
 Benchmark.ips do |x|
-  x.report("String")  { STRING_HASH["foo"] }
-  x.report("Symbol")  { SYMBOL_HASH[:foo] }
-  x.report("Integer") { INTEGER_HASH[1] }
+  x.report("String")  {  STRING_HASH["zero"] }
+  x.report("Symbol")  {  SYMBOL_HASH[:zero]  }
+  x.report("Integer") { INTEGER_HASH[0]      }
   x.compare!
 end
